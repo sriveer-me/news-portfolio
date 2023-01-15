@@ -1,0 +1,16 @@
+$breakpoints: (
+    "mobile": ( min-width: 0px ),
+    "tablet": ( min-width: 700px ),
+    "desktop":( min-width:1200px )
+);
+
+@mixin respond-to($breakpoint){
+    @if not (map-has-key($breakpoints,$breakpoint)){
+        @error "The #{$breakpoint} is not valid."+
+            "Available breakpoints are #{map-keys($breakpoints)}";
+    }
+
+    @media only screen and #{inspect(map-get($breakpoints,$breakpoint))} {
+        @content;
+    }
+}
