@@ -1,7 +1,10 @@
+@import './_breakpoints.scss';
+
 :root{
     --spacing-01: .4rem;
     --spacing-02: .8rem;
     --spacing-03: 1.2rem;
+    --spacing-035: 1.8rem;
     --spacing-04: 2.4rem;
 
     --color-orange:hsl(35, 77%, 62%);
@@ -14,4 +17,10 @@
     --color-black-100: #000;
     --color-black-200: hsl(240, 100%, 5%);
     --color-black-300: hsl(236, 13%, 42%);
+
+    @include respond-to("desktop"){
+        --max-website-width: 100rem;
+    }
+
+    --standard-transition: .2s ease-in-out;
 }

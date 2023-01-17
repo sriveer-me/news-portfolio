@@ -1,0 +1,121 @@
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: var(--spacing-04);
+    background-color: var(--color-white-200);
+
+    @include respond-to("desktop"){
+        padding-left: 0;  //since min desktop is 1200 right?
+        padding-right: 0; //since min desktop is 1200 right?
+        margin-left: auto;
+        margin-right: auto;
+        max-width: var(--max-website-width);
+    }
+
+    nav{
+        position: relative;
+        
+        input{
+            display: none;
+        }
+        label{
+            position: relative;
+            z-index: 1000; //place me above everything on the page including the main nav menu
+            display: block;
+            width: var(--spacing-04);
+            height: var(--spacing-04);
+
+            background-repeat: no-repeat;
+            background-position: center center;
+
+            @include respond-to("desktop"){
+                display: none;
+            }
+        }
+
+        input + label{
+            background-image: url('./../img/icon-menu.svg');
+        }
+        input:checked + label{
+            background-image: url('./../img/icon-menu-close.svg');
+        }
+
+        ul{
+            list-style-type: none;
+
+            @include respond-to("mobile"){
+                transition: transform var(--standard-transition);
+                transform: translateX(65vw);
+
+                z-index: 900; //place me above everything on the page except the button which closes me
+
+                //fix me to the top right side 
+                position: fixed;
+                top: 0;
+                right: 0;
+                    
+                //magic number looks good!
+                width: 65vw;
+                height: 100vh;
+
+                background-color: var(--color-white-100);
+                
+                //magic number looks good!
+                padding-top: 10rem;
+
+                li {
+                    padding: var(--spacing-035);
+                    padding-left: var(--spacing-04);
+
+                    a{
+                        color: inherit;
+                        text-decoration: none;
+                        font-weight: 500;
+                        font-size: 2.2rem;
+                    }
+                }
+            }
+
+            @include respond-to("desktop"){
+                display: flex;
+                column-gap: var(--spacing-04);
+                li{
+                    a{
+                        color: var(--color-black-300);
+                        text-decoration: none;
+                        font-weight: 500;
+                        font-size: 2rem;
+                    }
+                }
+            }
+        }
+
+        input:checked ~ ul{
+            transform: translateX(0);
+        }
+    }
+
+
+    .blinder{
+        transition: opacity var(--standard-transition);
+        opacity: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(#000000,.6);
+
+        pointer-events: none;
+    }
+
+    input:checked ~ .blinder{
+        opacity: 1;
+        @include respond-to("desktop"){
+            opacity: 0;
+        }
+    }
+}
