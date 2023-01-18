@@ -18,8 +18,11 @@
     --color-black-200: hsl(240, 100%, 5%);
     --color-black-300: hsl(236, 13%, 42%);
 
+    --font-size-01: 2.2rem;
+
     @include respond-to("desktop"){
         --max-website-width: 100rem;
+        --font-size-01: 2.0rem;
     }
 
     --standard-transition: .2s ease-in-out;
