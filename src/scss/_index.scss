@@ -12,10 +12,14 @@ main{
     'new'
     'three-split';
 
+    row-gap: var(--spacing-04);
+
+    padding: 0 var(--spacing-03);
+
     @include respond-to("desktop"){
+        padding: 0;
 
         column-gap: var(--spacing-03);
-        row-gap: var(--spacing-04);
 
         grid-template-areas: 
         'hero-image hero-image new'
@@ -56,8 +60,10 @@ main{
 }
 .new{
     grid-area: new;
+    @include respond-to("mobile"){
+        margin: var(--spacing-04) 0;
+    }
     padding: var(--spacing-04);
-    
     background-color: var(--color-black-200);
     color: var(--color-white-200);
 
@@ -97,6 +103,7 @@ main{
     'one'
     'two'
     'three';
+    row-gap: var(--spacing-04);
     @include respond-to("desktop"){
         grid-template-areas: 'one two three';
         grid-template-columns: 1fr 1fr 1fr;

@@ -3,7 +3,7 @@ header{
     justify-content: space-between;
     align-items: center;
 
-    padding: var(--spacing-04);
+    padding: var(--spacing-04) var(--spacing-03);
     background-color: var(--color-white-200);
 
     @include respond-to("desktop"){
