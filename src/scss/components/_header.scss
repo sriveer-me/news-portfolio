@@ -1,4 +1,7 @@
 header{
+    position: sticky;
+    top: 0;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -113,8 +116,10 @@ header{
 
     input:checked ~ .blinder{
         opacity: 1;
+        pointer-events: auto;
         @include respond-to("desktop"){
             opacity: 0;
+            pointer-events: none;
         }
     }
 }
