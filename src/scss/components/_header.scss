@@ -7,8 +7,7 @@ header{
     background-color: var(--color-white-200);
 
     @include respond-to("desktop"){
-        padding-left: 0;  //since min desktop is 1200 right?
-        padding-right: 0; //since min desktop is 1200 right?
+        padding: 5rem 0;
         margin-left: auto;
         margin-right: auto;
         max-width: var(--max-website-width);
